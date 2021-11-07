@@ -27,11 +27,10 @@ void keyPressed() {
   } else if (key == '4' && !firstChoicePicked) {
    ingredient1 = 4;
   }
-} 
 
-if (ingredient1 == 1) {
-  
-}
+
+if 
+
     if (key == '1' && !secondChoicePicked && firstChoicePicked) {
    ingredient2 = 1;
     secondChoicePicked = true;
@@ -45,5 +44,5 @@ if (ingredient1 == 1) {
    ingredient2 = 4;
    secondChoicePicked = true;
   }
-
+  }
 }
