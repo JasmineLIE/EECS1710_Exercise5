@@ -27,7 +27,6 @@ class Brewing {
     ssBrew = loadImage("Images/sunshroomBrew.png");
     rebelBrew = loadImage("Images/rebelBrew.png");
     dsBrew = loadImage("Images/dreamscapeBrew.png");
-    
   }
 
   void update() {
@@ -36,87 +35,106 @@ class Brewing {
       image(aitneScale, 110, 120);
       break;
     case 2:
-      image(solsBraid, 110, 120);
+      image(marcap, 110, 120); 
       break;
     case 3:
-      image(marcap, 110, 120);
+      image(solsBraid, 110, 120);
+
       break;
     case 4:
       image(necropul, 110, 120);
       break;
-      
     }
-      switch(ingredient2) {
-         case 1: 
+    switch(ingredient2) {
+    case 1: 
       image(aitneScale, 240, 120);
       break;
     case 2:
-      image(solsBraid, 240, 120);
+      image(marcap, 240, 120);
+
       break;
     case 3:
-      image(marcap, 240, 120);
+      image(solsBraid, 240, 120);
       break;
     case 4:
       image(necropul, 240, 120);
       break;
-      }
-    
+    }
+
 
     if (firstChoicePicked && secondChoicePicked && !readyToBrew) {
+      readyToBrew = true;
       if (ingredient1 == 1 && ingredient2 == 2) {
         potionOutcome = 2;
-        readyToBrew = true;
-      } else if (ingredient1 == 1 && ingredient2 == 3) {
+      } else if (ingredient1 == 1 || ingredient1 == 3 && ingredient2 == 3 || ingredient2 == 1) {
         potionOutcome = 1;
-        readyToBrew = true;
-      } else if (ingredient1 == 1 && ingredient2 == 4) {
-
+      } else if (ingredient1 == 1 || ingredient1 == 4 && ingredient2 == 4 || ingredient2 == 1) {
         potionOutcome = 3;
-        readyToBrew = true;
-      } else if (ingredient1 == 2 && ingredient2 == 3) {
+      } else if (ingredient1 == 2 || ingredient1 == 3 && ingredient2 == 3 || ingredient2 == 2) {
 
         potionOutcome = 4;
-        readyToBrew = true;
-      } else if (ingredient1 == 2 && ingredient2 == 4) {
+      } else if (ingredient1 == 2 || ingredient1 == 4 && ingredient2 == 4 || ingredient2 == 2) {
 
         potionOutcome = 6;
-        readyToBrew = true;
-      } else if (ingredient1 == 3 && ingredient2 == 4) {
+      } else if (ingredient1 == 3 || ingredient1 == 4 && ingredient2 == 4 || ingredient2 == 3) {
 
         potionOutcome = 5;
-        readyToBrew = true;
       } 
       countDown = 15;
     }
-    
+
     if (readyToBrew) {
       countDown--;
       if (countDown < 0) {
-      switch (potionOutcome) {
-      case 1:
-      image(destBrew, 0, 0);
-      break;
-      case 2:
-      image(ttBrew, 0, 0);
-      break;
-      case 3:
-      image(dynaBrew, 0, 0);
-      break;
-      case 4:
-      image(ssBrew, 0, 0);
-      break;
-      case 5:
-      image(rebelBrew, 0, 0);
-      break;
-      case 6:
-      image(dsBrew, 0, 0);
-      break;
-      }
+        switch (potionOutcome) {
+        case 1:
+          image(destBrew, 0, 0);
+          firstChoicePicked = false;
+          secondChoicePicked = false;
+          ingredient1 = 0;
+          ingredient2 = 0;
+          break;
+        case 2:
+          image(ttBrew, 0, 0);
+          firstChoicePicked = false;
+          secondChoicePicked = false;
+          ingredient1 = 0;
+          ingredient2 = 0;
+          break;
+        case 3:
+          image(dynaBrew, 0, 0);
+          firstChoicePicked = false;
+          secondChoicePicked = false;
+          ingredient1 = 0;
+          ingredient2 = 0;
+          break;
+        case 4:
+          image(ssBrew, 0, 0);
+          firstChoicePicked = false;
+          secondChoicePicked = false;
+          ingredient1 = 0;
+          ingredient2 = 0;
+          break;
+        case 5:
+          image(rebelBrew, 0, 0);
+          firstChoicePicked = false;
+          secondChoicePicked = false;
+          ingredient1 = 0;
+          ingredient2 = 0;
+          break;
+        case 6:
+          image(dsBrew, 0, 0);
+          firstChoicePicked = false;
+          secondChoicePicked = false;
+          ingredient1 = 0;
+          ingredient2 = 0;
+          break;
+        }
       }
     }
   }
   void display() {
-
+    noTint();
     image(blank, 0, 0);
     update();
   }
