@@ -34,7 +34,11 @@ class Bubbles {
     lifespan -= 1.0;
   }
    void display() {
-    fill(#05C800, lifespan);
+     if (potionOutcome == 1) {
+     
+     } else {
+       fill(#05C800, lifespan);
+     }
     noStroke();
     ellipse(position.x, position.y, random(10, 30), random(10, 30));
   }
