@@ -5,10 +5,10 @@ int ingredient1, ingredient2, potionOutcome;
 boolean firstChoicePicked = false;
 boolean secondChoicePicked = false;
 
-
+int countDown;
 boolean readyToBrew = false;
 
-PImage blank, destBrew, ttBrew, dynaBrew, ssBrew, rebelBrew, dsBrew, flatBrew;
+PImage blank, destBrew, ttBrew, dynaBrew, ssBrew, rebelBrew, dsBrew;
 PImage aitneScale, solsBraid, marcap, necropul;
 class Brewing {
   PVector position;
@@ -27,7 +27,7 @@ class Brewing {
     ssBrew = loadImage("Images/sunshroomBrew.png");
     rebelBrew = loadImage("Images/rebelBrew.png");
     dsBrew = loadImage("Images/dreamscapeBrew.png");
-    flatBrew = loadImage("Images/flatBrew.png");
+    
   }
 
   void update() {
@@ -85,10 +85,33 @@ class Brewing {
 
         potionOutcome = 5;
         readyToBrew = true;
-      } else if (ingredient1 - ingredient2 == 0) {
-
-        potionOutcome = 7;
-        readyToBrew = true;
+      } 
+      countDown = 15;
+    }
+    
+    if (readyToBrew) {
+      countDown--;
+      if (countDown < 0) {
+      switch (potionOutcome) {
+      case 1:
+      image(destBrew, 0, 0);
+      break;
+      case 2:
+      image(ttBrew, 0, 0);
+      break;
+      case 3:
+      image(dynaBrew, 0, 0);
+      break;
+      case 4:
+      image(ssBrew, 0, 0);
+      break;
+      case 5:
+      image(rebelBrew, 0, 0);
+      break;
+      case 6:
+      image(dsBrew, 0, 0);
+      break;
+      }
       }
     }
   }
