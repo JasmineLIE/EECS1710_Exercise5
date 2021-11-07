@@ -3,36 +3,36 @@ SoundFile cauldronBubbling;
 BubblesSystem bs;
 class Cauldron {
 
-  
-PImage backOfCauldron, cauldronLiquid, frontOfCauldron;  
-PVector position;
-Cauldron (float x, float y){
-  position =  new PVector(x, y);
-   backOfCauldron = loadImage("Images/backOfCauldron.png");
-  cauldronLiquid = loadImage("Images/cauldronLiquid.png");
-  frontOfCauldron = loadImage("Images/frontOfCauldron.png"); 
-}
 
-void update() {
-  bs.run();
- image(cauldronLiquid, 0, 0);  
-}
+  PImage backOfCauldron, cauldronLiquid, frontOfCauldron;  
+  PVector position;
+  Cauldron (float x, float y) {
+    position =  new PVector(x, y);
+    backOfCauldron = loadImage("Images/backOfCauldron.png");
+    cauldronLiquid = loadImage("Images/cauldronLiquid.png");
+    frontOfCauldron = loadImage("Images/frontOfCauldron.png");
+  }
+
+  void update() {
+    bs.run();
+  }
 
 
-void draw() {
+  void draw() {
 
-  image(backOfCauldron, 0, 0);
- update();
-  image(frontOfCauldron, 0, 0);
-}
+    image(backOfCauldron, 0, 0);
+    update();
 
-void ambience() {
-  cauldronBubbling.loop();
-  cauldronBubbling.amp(0.5);
-}
+    image(frontOfCauldron, 0, 0);
+  }
 
-void run() {
+  void ambience() {
+    cauldronBubbling.loop();
+    cauldronBubbling.amp(0.5);
+  }
 
- draw();
-}
+  void run() {
+
+    draw();
+  }
 }
