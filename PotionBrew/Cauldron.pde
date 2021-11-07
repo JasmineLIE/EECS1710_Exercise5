@@ -12,22 +12,27 @@ Cauldron (float x, float y){
   cauldronLiquid = loadImage("Images/cauldronLiquid.png");
   frontOfCauldron = loadImage("Images/frontOfCauldron.png"); 
 }
+
 void update() {
   bs.run();
  image(cauldronLiquid, 0, 0);  
 }
 
+
 void draw() {
+
   image(backOfCauldron, 0, 0);
  update();
   image(frontOfCauldron, 0, 0);
 }
 
-void soundEffects() {
-  
+void ambience() {
+  cauldronBubbling.loop();
+  cauldronBubbling.amp(0.5);
 }
 
 void run() {
+
  draw();
 }
 }
