@@ -16,23 +16,24 @@ void setup() {
   size(735, 496, P2D);
 
   bookInteractionClick = new SoundFile(this, "Audio/PageClick.wav");
+  cauldronBubbling =  new SoundFile(this, "Audio/Boiling.mp3");
   bookClose = new SoundFile(this, "Audio/BookClose.mp3");
-  
+
   background = loadImage("Images/background.jpg");
 
   potionBook = new potionBook(0, 0);
   cauldron = new Cauldron( 300, 300);
   bs = new BubblesSystem(new PVector(217, 484));
-  
- brewing = new Brewing(0, 0);
+  cauldron.ambience();
+  brewing = new Brewing(0, 0);
 }
 
 void draw() {
-println(mouseX, mouseY);
-  background(background);
-    cauldron.run();
-    brewing.run();
-  potionBook.draw();
-  
 
+
+  println(mouseX, mouseY);
+  background(background);
+  cauldron.run();
+  brewing.run();
+  potionBook.draw();
 }
