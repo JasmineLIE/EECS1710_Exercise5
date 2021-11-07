@@ -7,42 +7,51 @@ void keyPressed() {
       potionBookOpen = true;
       bookStatusCheck = 2;
     }
-  
   }
-  
+
   if (key == 'x' && bookStatusCheck == 1) {
-      bookClose.play();
- 
+    bookClose.play();
   } else if (key == 'x' && bookStatusCheck == 2) {
-       bookInteractionClick.play();
+    bookInteractionClick.play();
   }
- 
+
   if (!firstChoicePicked && !secondChoicePicked) { //first pick choice
-  if (key == '1' && !firstChoicePicked) {
-     ingredient1 = 1;
-  } else if (key == '2' && !firstChoicePicked) {
-  ingredient1 = 2;
-  } else if (key == '3' && !firstChoicePicked) {
-  ingredient1 = 3;
-  } else if (key == '4' && !firstChoicePicked) {
-   ingredient1 = 4;
+    if (key == '1' ) {
+      ingredient1 = 1;
+      firstChoicePicked = true;
+      aitneSFX.play();
+    } else if (key == '2' ) {
+      ingredient1 = 2;
+      firstChoicePicked = true;
+      solSFX.play();
+    } else if (key == '3') {
+      ingredient1 = 3;
+      firstChoicePicked = true;
+      capSFX.play();
+    } else if (key == '4') {
+      ingredient1 = 4;
+      firstChoicePicked = true;
+      necroSFX.play();
+    }
   }
 
-
-if 
-
-    if (key == '1' && !secondChoicePicked && firstChoicePicked) {
-   ingredient2 = 1;
-    secondChoicePicked = true;
-  } else if (key == '2' && !secondChoicePicked && firstChoicePicked) {
-   ingredient2 = 2;
-    secondChoicePicked = true;
-  } else if (key == '3' && !secondChoicePicked && firstChoicePicked) {
-  ingredient2 = 3;
-   secondChoicePicked = true;
-  } else if (key == '4' && !secondChoicePicked && firstChoicePicked) {
-   ingredient2 = 4;
-   secondChoicePicked = true;
-  }
+  if (firstChoicePicked && !secondChoicePicked) { 
+    if (key == '1' && ingredient1 != 1) {
+      ingredient2 = 1;
+      secondChoicePicked = true;
+      aitneSFX.play();
+    } else if (key == '2' && firstChoicePicked && ingredient1 != 2) {
+      ingredient2 = 2;
+      secondChoicePicked = true;
+      solSFX.play();
+    } else if (key == '3' && firstChoicePicked && ingredient1 != 3) {
+      ingredient2 = 3;
+      secondChoicePicked = true;
+      capSFX.play();
+    } else if (key == '4' && firstChoicePicked && ingredient1 != 4) {
+      ingredient2 = 4;
+      secondChoicePicked = true;
+      necroSFX.play();
+    }
   }
 }
