@@ -7,13 +7,18 @@ PImage background;
 potionBook potionBook;
 Cauldron cauldron;
 Brewing brewing;
-
 SoundFile aitneSFX, solSFX, capSFX, necroSFX;
+
 
 
 
 void setup() {
   size(735, 496, P2D);
+
+  aitneSFX = new SoundFile(this, "Audio/aitneScaleSFX.mp3");
+  solSFX = new SoundFile(this, "Audio/solBraidSFX.mp3");
+  capSFX = new SoundFile(this, "Audio/marscapSFX.mp3");
+  necroSFX = new SoundFile(this, "Audio/necropolSFX.mp3");
 
   bookInteractionClick = new SoundFile(this, "Audio/PageClick.wav");
   cauldronBubbling =  new SoundFile(this, "Audio/Boiling.mp3");
